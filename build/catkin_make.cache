@@ -1,0 +1,2 @@
+robot_joystick
+-DCATKIN_DEVEL_PREFIX=/home/billapi/4-extra-joystick/devel -DCMAKE_INSTALL_PREFIX=/home/billapi/4-extra-joystick/install -G Unix Makefiles

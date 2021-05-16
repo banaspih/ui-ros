@@ -1,0 +1,8 @@
+prefix=/home/billapi/4-extra-joystick/devel
+
+Name: robot_joystick
+Description: Description of robot_joystick
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
