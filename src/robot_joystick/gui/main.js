@@ -1,5 +1,4 @@
-//const Vue = require('vue')
-//const Vue = import vue from 'httddps://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.esm.browser.js'
+
 
 
 let vueApp = new Vue({
@@ -7,7 +6,7 @@ let vueApp = new Vue({
     data: {
         // ros connection
         ros: null,
-        rosbridge_address: 'ws://0.0.0.0:9090',
+        rosbridge_address: 'wss://i-0734dfc7411934198.robotigniteacademy.com/rosbridge/',
         connected: false,
         // page content
         menu_title: 'Connection',
@@ -77,7 +76,7 @@ let vueApp = new Vue({
             })
             let message = new ROSLIB.Message({
                 linear: { x: 1, y: 0, z: 0, },
-                angular: { x: 0, y: 0, z: 0.5, },
+                angular: { x: 0, y: 0, z: 0.05, },
             })
             topic.publish(message)
         },
@@ -101,12 +100,12 @@ let vueApp = new Vue({
                 let minTop = ref.offsetTop - parseInt(this.dragCircleStyle.height) / 2
                 let maxTop = minTop + 200
                 let top = this.y + minTop
-                this.dragCircleStyle.top = $(top) + px
+                this.dragCircleStyle.top = `${top}px`
 
                 let minLeft = ref.offsetLeft - parseInt(this.dragCircleStyle.width) / 2
                 let maxLeft = minLeft + 200
                 let left = this.x + minLeft
-                this.dragCircleStyle.left = $(left) + px
+                this.dragCircleStyle.left = `${left}px`
 
                 this.setJoystickVals()
             }
@@ -122,10 +121,6 @@ let vueApp = new Vue({
     },
     mounted() {
         // page is ready
-        if (typeof window !== "undefined") {
-            window.addEventListener('mouseup', this.stopDrag)
-          }
-          
-        
+        window.addEventListener('mouseup', this.stopDrag)
     },
 })
